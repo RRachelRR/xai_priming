@@ -120,14 +120,15 @@ if False:
 
 ############################################################ text
 
-st.write("# Prediction of students' academic career")
+st.write("# Academic Career Predictions")
 
 st.markdown(
 f"""
-This is a research study on the collaboration between Artificial Intelligence (AI) and humans.
+This is a research study on the usefulness of Artificial Intelligence (AI) decision aids to predict the outcome of a student's academic career.
 
-Introductory sentence about AI recommender systems for this kind of situation. 
-Your task will be to have a look at twenty randomly selected sets of data about a student's academic career, and predict if the student will graduate or dropout?
+Students dropping out before finishing their degree impacts economic growth, employment, competiveness as well as students' lives and families as well as educational institutions. Tutors and advisors can use student data to make predictions about their academic career to offer more accurate help to students.
+
+Your task will be to have a look at twenty randomly selected sets of student data, and predict if the student will graduate or dropout.
 Our AI tool trained specifically for this task will make a recommendation to assist you with your decision. Finally, we will ask you to answer a few questions about how useful the AI tool was in making your decisions.""")
 
 
@@ -137,7 +138,7 @@ f"""
 ---
 ##### About this study:
 
-The entire study should take about 20 minutes. All your answers will be collected anonymously. We do not collect personal information, like your name or IP address. If you want, you can add your score to the leaderboards on the last page, which will not be used in our research. You are free to quit the study at any time.
+The entire study should take about 20 minutes. All your answers will be collected anonymously. We do not collect personal information, like your name or IP address. You are free to quit the study at any time.
 
 The data that we collect is stored on a server of the University of Bremen, in Germany. After the study finishes, the data from all participants will be analysed together and the results might be published in future research papers. After finishing the experiment, it is not possible to withdraw your data because of the anonymization. 
 

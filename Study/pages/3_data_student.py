@@ -96,8 +96,8 @@ def decision_submit(student_number):
 
 st.markdown("### Graduate or Dropout?")
 
-st.markdown(f'''Here you will be shown 20 sets of student information. Your task is to predict for each student whether they will graduate or drop out.
-Below, you can see the student's file with various information about their person and academic career. After you have made your decision you will be shown the prediction of our AI system as well as an explanation for its decision. You will then have the opportunity to change your mind before proceeding to the next student.
+st.markdown(f'''Here you will be shown 20 sets of student information collected at a portuguese university. Your task is to predict for each student whether they will graduate or drop out.
+Below, you can see the student's file with various information about their person and academic career. You will be shown the prediction of our AI system to aid you in making your decision.
 
 
 ---''')
@@ -120,7 +120,6 @@ if st.session_state["student_num"] == len(df.index):
 #st.write(style.to_html(), unsafe_allow_html=True)
 #st.write(df)
 #st.write(indexes)
-
 #df_show = pd.DataFrame(df, index  = indexes)
 #st.write(df_show)
 #st.write(df_show2.to_html(header=False))
@@ -134,6 +133,21 @@ with col1:
 with col3:
 	ai_pred = df_full.at[indexes[student_num],"AI prediction"]
 	st.write("AI prediction\: " + ai_pred.upper())
-	st.write("Explanation\: REASONS")
+	#st.write("Explanation\: REASONS")
 	choice = st.radio("What is your prediction for this student's academic career?", ["", "GRADUATE", "DROPOUT"], key = "decision_choice_"+ str(student_num))
 	st.button("Confirm decision",disabled = len(choice) == 0,key="second_submit", on_click=decision_submit, args = (0,))
+
+	st.warning('''
+	**Notes about Portuguese University System**  
+	**Application Order**: Order of preferences when applying to university  
+	**Displaced**: Refers to students not living at home    
+	| Portuguese Grade| Grade Description                 | US Grade |
+	|---------------|---------------------------------------|--------------|
+	| 20.00         | Very good with distinction and honors | A+           |
+	| 18.00 - 19.99 | Excellent                             | A+           |
+	| 16.00 - 17.99 | Very Good                             | A            |
+	| 14.00 - 15.99 | Good                                  | B            |
+	| 10.00 - 13.99 | Sufficient                            | C            |
+	| 1.00 - 9.99   | Poor                                  | F            |
+	    
+	''')

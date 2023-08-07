@@ -105,7 +105,7 @@ def final_decision_submit(student_number):
 st.markdown("### Graduate or Dropout?")
 
 st.markdown(f'''Here you will be shown 20 sets of student information. Your task is to predict for each student whether they will graduate or drop out.
-Below, you can see the student's file with various information about their person and academic career. After you have made your decision you will be shown the prediction of our AI system as well as an explanation for its decision. You will then have the opportunity to change your mind before proceeding to the next student.
+Below, you can see the student's file with various information about their person and academic career. After you have made your decision you will be shown the prediction of our AI system. You will then have the opportunity to change your mind before proceeding to the next student.
 
 
 ---''')
@@ -135,17 +135,32 @@ if st.session_state["student_num"] == len(df.index):
 col1, col2, col3= st.columns([4, 1, 5])
 #st.table(df.loc[st.session_state.indexes[student_num]])
 with col1:
-	st.dataframe(df.T.loc[:, df.T.columns=="Student " + str(student_num +1) ], use_container_width=True)
+	st.table(df.T.loc[:, df.T.columns=="Student " + str(student_num +1) ])
 #st.dataframe(df.loc[st.session_state.indexes[student_num]], use_container_width=True)
 #st.dataframe(df_full.loc[st.session_state.indexes[student_num]], use_container_width=True)
 with col3:
 	if state_num == 2:
 		ai_pred = df_full.at[indexes[student_num],"AI prediction"]
 		st.write("AI prediction\: " + ai_pred.upper())
-		st.write("Explanation\: REASONS")
+		#st.write("Explanation\: REASONS")
 	choice = st.radio("What is your prediction for this student's academic career?", ["", "GRADUATE", "DROPOUT"], key = "decision_choice_"+ str(student_num))
 
 	if state_num == 1:
 		st.button("Confirm decision",disabled = len(choice) == 0,key="first_submit", on_click=first_decision_submit, args = (0,))
 	else:
 		st.button("Confirm decision",disabled = len(choice) == 0,key="second_submit", on_click=final_decision_submit, args = (0,))
+
+	st.warning('''
+	**Notes about Portuguese University System**  
+	**Application Order**: Order of preferences when applying to university  
+	**Displaced**: Refers to students not living at home    
+	| Portuguese Grade| Grade Description                 | US Grade |
+	|---------------|---------------------------------------|--------------|
+	| 20.00         | Very good with distinction and honors | A+           |
+	| 18.00 - 19.99 | Excellent                             | A+           |
+	| 16.00 - 17.99 | Very Good                             | A            |
+	| 14.00 - 15.99 | Good                                  | B            |
+	| 10.00 - 13.99 | Sufficient                            | C            |
+	| 1.00 - 9.99   | Poor                                  | F            |
+	    
+	''')
