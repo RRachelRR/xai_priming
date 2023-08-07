@@ -108,8 +108,6 @@ st.markdown("Please help us evaluate the performance of the AI by answering the 
 
 with st.form(key='my_form'):
 
-    q1 = st.text_input('Please enter your Prolific Id:')
-
     #    q3b = None
     q2 = st.radio("Are you in any way familiar with AI?", ["", "YES", "NO"])
     #if q4 == "YES":
@@ -166,11 +164,10 @@ with st.form(key='my_form'):
 #st.write(q1, likert_results)
 
 if submit_button:
-    if any(a == "" for a in likert_results.values()) or any(a == "" for a in [q1, q2, q3, q4]):
+    if any(a == "" for a in likert_results.values()) or any(a == "" for a in [q2, q3, q4]):
         st.error("Please answer all the questions!")
     else:
         with open(filename, 'a+') as f:
-            f.write(f"{1},{q1}\n")
             f.write(f"{2},{q2},{q2b}\n")
             f.write(f"{3},{q3}\n")
             f.write(f"{4},{q4}\n")
