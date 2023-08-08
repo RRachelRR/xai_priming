@@ -140,7 +140,13 @@ with col3:
 	st.warning('''
 	**Notes about Portuguese University System**  
 	**Application Order**: Order of preferences when applying to university  
-	**Displaced**: Refers to students not living at home    
+	**Displaced**: Refers to students not living at home  
+	**Credited**: Refers to classes recognized from previous education or work  
+	**Enrolled**: Refers to classes a student signed up for  
+	**Evaluations**: Refers to the total number of exams in a semester across all classes  
+	**Approved**: Refers to the number of classes passed  
+	**Without Evaluations**: Refers to the number of classes without exams  
+	    
 	| Portuguese Grade| Grade Description                 | US Grade |
 	|---------------|---------------------------------------|--------------|
 	| 20.00         | Very good with distinction and honors | A+           |
