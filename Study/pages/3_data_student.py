@@ -85,6 +85,14 @@ debug = False
 def decision_submit(student_number):
 	time1 = time_first
 	time2 = str(time.time())
+	correct_choice = df_full.at[indexes[student_num],"Target"].upper()
+	if choice == correct_choice:
+		if not "num_correct" in st.session_state:
+			st.session_state["num_correct"] = 1
+		else:
+			st.session_state["num_correct"] = st.session_state["num_correct"] + 1
+	else:
+		st.write(correct_choice, choice)
 	with open(filename, 'a+') as f:
 		f.write(f"{indexes[student_num]},{choice},{time1},{time2}\n")
 	st.session_state["state_num"] = 1

@@ -68,6 +68,8 @@ except:
 
 
 st.markdown("Thank you for participating in our study!")
+num_correct = st.session_state["num_correct"]
+st.write(f"You predicted {num_correct} of the 15 student outcomes correctly.")
 
 st.write("---")
 

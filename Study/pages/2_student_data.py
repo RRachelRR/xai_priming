@@ -90,6 +90,14 @@ def first_decision_submit(student_number):
 def final_decision_submit(student_number):
 	first_choice = st.session_state["first_choice"]
 	second_choice = choice
+	correct_choice = df_full.at[indexes[student_num],"Target"].upper()
+	if second_choice == correct_choice:
+		if not "num_correct" in st.session_state:
+			st.session_state["num_correct"] = 1
+		else:
+			st.session_state["num_correct"] = st.session_state["num_correct"] + 1
+	#else:
+	#	st.write(correct_choice, choice)
 	time1 = st.session_state["time_first"]
 	time2 = st.session_state["time_second"]
 	time3 = str(time.time())
