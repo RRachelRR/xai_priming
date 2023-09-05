@@ -86,7 +86,7 @@ st.write("---")
 
 st.write("You should be redirected back to Prolific in a new tab. If this has not happened, please click HERE")
 
-webbrowser.open('https://www.uni-bremen.de/dmlab')
+webbrowser.open('https://app.prolific.co/submissions/complete?cc=C13E0WG5')
 
 footer="""<style>
 a:link , a:visited{
