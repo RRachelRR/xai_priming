@@ -163,19 +163,7 @@ color: red;
 background-color: transparent;
 text-decoration: underline;
 }
-
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: white;
-color: black;
-text-align: center;
-}
 </style>
-<div class="footer">
 <p><a href="https://hai.uni-bremen.de/Imprint" target="_blank">Imprint</a> | <a href="https://www.uni-bremen.de/en/data-privacy" target="_blank">Privacy Policy</a></p>
-</div>
 """
-st.markdown(footer,unsafe_allow_html=True)
+st.write(footer,unsafe_allow_html=True)

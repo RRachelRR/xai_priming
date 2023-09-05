@@ -72,7 +72,7 @@ st.session_state.data_full = df
 df_display = df.loc[:, ~df.columns.isin(['Target', 'AI prediction'])]
 randomized_indexes = df_random.index.tolist()
 st.session_state.indexes = randomized_indexes
-for i in range(20):
+for i in range(15):
 	df_display.at[randomized_indexes[i],"DisplayIndex"] = "Student " + str(i + 1)
 df_display.set_index('DisplayIndex',inplace=True)
 st.session_state.data = df_display
@@ -170,6 +170,25 @@ if next_page:
 			switch_page("student_data")
 		else:
 			switch_page("data_student")
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+</style>
+<p><a href="https://hai.uni-bremen.de/Imprint" target="_blank">Imprint</a> | <a href="https://www.uni-bremen.de/en/data-privacy" target="_blank">Privacy Policy</a></p>
+"""
+st.write(footer,unsafe_allow_html=True)
+
+
 
 
 

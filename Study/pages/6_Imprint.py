@@ -91,5 +91,22 @@ D-28359 Bremen
 Tel.: +49 421 218 64414  
 E-Mail: rringe@uni-bremen.de ''')
 
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+</style>
+<p><a href="https://hai.uni-bremen.de/Imprint" target="_blank">Imprint</a> | <a href="https://www.uni-bremen.de/en/data-privacy" target="_blank">Privacy Policy</a></p>
+"""
+st.write(footer,unsafe_allow_html=True)
+
 
 
