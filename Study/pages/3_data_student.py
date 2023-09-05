@@ -138,14 +138,7 @@ with col3:
 	st.button("Confirm decision",disabled = len(choice) == 0,key="second_submit", on_click=decision_submit, args = (0,))
 
 	st.warning('''
-	**Notes about Portuguese University System**  
-	**Application Order**: Order of preferences when applying to university  
-	**Displaced**: Refers to students not living at home  
-	**Credited**: Refers to classes recognized from previous education or work  
-	**Enrolled**: Refers to classes a student signed up for  
-	**Evaluations**: Refers to the total number of exams in a semester across all classes  
-	**Approved**: Refers to the number of classes passed  
-	**Without Evaluations**: Refers to the number of classes without exams  
+	**Notes about Portuguese University System** 
 	    
 	| Portuguese Grade| Grade Description                 | US Grade |
 	|---------------|---------------------------------------|--------------|
@@ -157,3 +150,32 @@ with col3:
 	| 1.00 - 9.99   | Poor                                  | F            |
 	    
 	''')
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p><a href="https://hai.uni-bremen.de/Imprint" target="_blank">Imprint</a> | <a href="https://www.uni-bremen.de/en/data-privacy" target="_blank">Privacy Policy</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
