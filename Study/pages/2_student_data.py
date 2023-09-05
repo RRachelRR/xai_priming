@@ -105,7 +105,7 @@ def final_decision_submit(student_number):
 st.markdown("### Graduate or Dropout?")
 
 st.markdown(f'''Here you will be shown 20 sets of student information. Your task is to predict for each student whether they will graduate or drop out.
-Below, you can see the student's file with various information about their person and academic career. After you have made your decision you will be shown the prediction of our AI system. You will then have the opportunity to change your mind before proceeding to the next student.
+Below, you can see the student’s file with various information about their person and academic career. First, make a decision based on the student's data, without the help of the AI. After entering your decision, you will be shown the prediction of our AI system and will have the option to change your mind. Once you have considered the AI’s suggestion, make your final decision and proceed to the next student.
 
 
 ---''')
@@ -141,14 +141,17 @@ with col1:
 with col3:
 	if state_num == 2:
 		ai_pred = df_full.at[indexes[student_num],"AI prediction"]
-		st.write("AI prediction\: " + ai_pred.upper())
+		if ai_pred.upper() == "DROPOUT":
+			st.error("AI prediction\: " + ai_pred.upper())
+		else:
+			st.success("AI prediction\: " + ai_pred.upper())
 		#st.write("Explanation\: REASONS")
 	choice = st.radio("What is your prediction for this student's academic career?", ["", "GRADUATE", "DROPOUT"], key = "decision_choice_"+ str(student_num))
 
 	if state_num == 1:
-		st.button("Confirm decision",disabled = len(choice) == 0,key="first_submit", on_click=first_decision_submit, args = (0,))
+		st.button("Enter decision and show AI suggestion",disabled = len(choice) == 0,key="first_submit", on_click=first_decision_submit, args = (0,))
 	else:
-		st.button("Confirm decision",disabled = len(choice) == 0,key="second_submit", on_click=final_decision_submit, args = (0,))
+		st.button("Confirm final decision",disabled = len(choice) == 0,key="second_submit", on_click=final_decision_submit, args = (0,))
 
 	st.warning('''
 	**Notes about Portuguese University System**  

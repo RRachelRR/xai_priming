@@ -132,7 +132,10 @@ with col1:
 #st.dataframe(df_full.loc[st.session_state.indexes[student_num]], use_container_width=True)
 with col3:
 	ai_pred = df_full.at[indexes[student_num],"AI prediction"]
-	st.write("AI prediction\: " + ai_pred.upper())
+	if ai_pred.upper() == "DROPOUT":
+		st.error("AI prediction\: " + ai_pred.upper())
+	else:
+		st.success("AI prediction\: " + ai_pred.upper())
 	#st.write("Explanation\: REASONS")
 	choice = st.radio("What is your prediction for this student's academic career?", ["", "GRADUATE", "DROPOUT"], key = "decision_choice_"+ str(student_num))
 	st.button("Confirm decision",disabled = len(choice) == 0,key="second_submit", on_click=decision_submit, args = (0,))

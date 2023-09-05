@@ -128,7 +128,7 @@ This is a research study on the usefulness of Artificial Intelligence (AI) decis
 
 Students dropping out before finishing their degree impacts economic growth, employment, competiveness as well as students' lives and families as well as educational institutions. Tutors and advisors can use student data to make predictions about their academic career to offer more accurate help to students.
 
-Your task will be to have a look at twenty randomly selected sets of student data, and predict if the student will graduate or dropout.
+Your task will be to have a look at twenty randomly selected sets of student data, and predict if the student will graduate or drop out.
 Our AI tool trained specifically for this task will make a recommendation to assist you with your decision. Finally, we will ask you to answer a few questions about how useful the AI tool was in making your decisions.""")
 
 

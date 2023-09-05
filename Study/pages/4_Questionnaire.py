@@ -114,12 +114,13 @@ with st.form(key='my_form'):
     q2b = st.text_input('If yes, how have you come in contact with AI?')
     #else:
     #    q4b = None
-    q3 = st.number_input('How old are you?', value = int(0))
-    q4 = st.radio("What gender do you identify as?", ["", "FEMALE", "MALE", "PREFER TO SELF-IDENTIFY"])
+    q3 = st.number_input('Out of the 15 students, how many do you think you predicted correctly (with the help of the AI)?', value = int(0))
+    #q4 = st.radio("What gender do you identify as?", ["", "FEMALE", "MALE", "PREFER TO SELF-IDENTIFY"])
 
     st.write("Please rate the following statements:")
 
     likert_questions = {
+        "know": "I am knowledgeable enough in the problem domain to solve the task at hand",
         "rel_1": "The system always provides the advice I require to make my decision",
         "rel_2": "The system performs reliably",
         "rel_5": "The system analyzes problems consistently",
@@ -137,12 +138,15 @@ with st.form(key='my_form'):
     likert_results = {}
 
     likert_question_keys = list(likert_questions.keys())
+    #st.write(likert_question_keys)
     if likert_random_order:
         if not "likert_question_keys" in st.session_state:
             random.shuffle(likert_question_keys)
+            likert_question_keys.insert(0, likert_question_keys.pop(likert_question_keys.index("know")))
             st.session_state.likert_question_keys = likert_question_keys
         else:
             likert_question_keys = st.session_state.likert_question_keys
+    #st.write(likert_question_keys)
 
     for key in likert_question_keys:
         with st.container():
@@ -164,13 +168,13 @@ with st.form(key='my_form'):
 #st.write(q1, likert_results)
 
 if submit_button:
-    if any(a == "" for a in likert_results.values()) or any(a == "" for a in [q2, q3, q4]):
+    if any(a == "" for a in likert_results.values()) or any(a == "" for a in [q2, q3]): #, q4]):
         st.error("Please answer all the questions!")
     else:
         with open(filename, 'a+') as f:
             f.write(f"{2},{q2},{q2b}\n")
             f.write(f"{3},{q3}\n")
-            f.write(f"{4},{q4}\n")
+            #f.write(f"{4},{q4}\n")
             for key in likert_question_keys:
                 f.write(f"{key},{likert_results[key]}\n")
         switch_page("Goodbye")
