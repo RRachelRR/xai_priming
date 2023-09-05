@@ -22,20 +22,7 @@ from collections import Counter
 
 ############################################################ Settings
 
-# optional celebratory balloons
-balloons = True
-
-st.set_page_config(layout="centered")
-c_green = "#AD9"
-c_red = "#FA9"
-
-# hides page nav in sidebar
-no_sidebar_style = """
-    <style>
-        div[data-testid="stSidebarNav"] {pointer-events: none; cursor: default;}
-    </style>
-"""
-st.markdown(no_sidebar_style, unsafe_allow_html=True)
+st.set_page_config(layout="centered", initial_sidebar_state="collapsed")
 
 # hides button to close sidebar, open settings
 no_button_style = """
