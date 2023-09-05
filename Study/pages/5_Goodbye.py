@@ -84,7 +84,7 @@ st.markdown("Thank you for participating in our study!")
 
 st.write("---")
 
-st.write("You should be redirected back to Prolific in a new tab. If this has not happened, please click HERE")
+st.write('You should be redirected back to Prolific in a new tab. If this has not happened, please click <a href="https://app.prolific.co/submissions/complete?cc=C13E0WG5">HERE</a>')
 
 webbrowser.open('https://app.prolific.co/submissions/complete?cc=C13E0WG5')
 
