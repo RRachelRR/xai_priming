@@ -73,9 +73,11 @@ st.write(f"You predicted {num_correct} of the 15 student outcomes correctly.")
 
 st.write("---")
 
-st.write('You should be redirected back to Prolific in a new tab. If this has not happened, please click [HERE](https://app.prolific.co/submissions/complete?cc=C13E0WG5)')
+st.write('The completion code for Prolific is')
+st.write("# C13E0WG5")
+st.write('Please enter it on prolific to finish the study and receive your compensation.')
 
-webbrowser.open('https://app.prolific.co/submissions/complete?cc=C13E0WG5')
+#webbrowser.open('https://app.prolific.co/submissions/complete?cc=C13E0WG5')
 
 footer="""<style>
 a:link , a:visited{
