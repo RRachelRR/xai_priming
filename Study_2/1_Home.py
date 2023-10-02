@@ -170,25 +170,19 @@ If you want to proceed with the study, please click "Start"!
 """
 )
 
-q1 = st.text_input('Please enter your Prolific Id:')
-
 next_page = st.button("Start", key = 1)
 if next_page:
-	
-	if(q1 == ""):
-		st.error("Please enter your Prolific ID to start")
+	id = 0
+	while os.path.exists(str(st.session_state.group) + '_' + str(id)+'.csv'):
+		id = id + 1
+	filename = str(st.session_state.group) + '_' + str(id) + '.csv'
+	st.session_state.filename = filename
+	with open(filename, 'a+') as f:
+		f.write(f"Filename,{filename}\n")
+	if st.session_state.group == 0:
+		switch_page("student_data")
 	else:
-		id = 0
-		while os.path.exists(str(st.session_state.group) + '_' + str(id)+'.csv'):
-			id = id + 1
-		filename = str(st.session_state.group) + '_' + str(id) + '.csv'
-		st.session_state.filename = filename
-		with open(filename, 'a+') as f:
-			f.write(f"Prolific ID,{q1}\n")
-		if st.session_state.group == 0:
-			switch_page("student_data")
-		else:
-			switch_page("data_student")
+		switch_page("data_student")
 
 footer="""<style>
 a:link , a:visited{

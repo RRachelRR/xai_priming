@@ -108,13 +108,15 @@ st.markdown("Please help us evaluate the performance of the AI by answering the 
 
 with st.form(key='my_form'):
 
+    q1 = st.number_input('How old are you?', value = int(0))
+    q2 = st.radio("What gender do you identify as?", ["", "FEMALE", "MALE", "PREFER TO SELF-IDENTIFY"])
     #    q3b = None
-    q2 = st.radio("Are you in any way familiar with AI?", ["", "YES", "NO"])
+    q3 = st.radio("Are you in any way familiar with AI?", ["", "YES", "NO"])
     #if q4 == "YES":
-    q2b = st.text_input('If yes, how have you come in contact with AI?')
+    q3b = st.text_input('If yes, how have you come in contact with AI?')
     #else:
     #    q4b = None
-    q3 = st.number_input('Out of the 15 students, how many do you think you predicted correctly (with the help of the AI)?', value = int(0))
+    q4 = st.number_input('Out of the 15 students, how many do you think you predicted correctly (with the help of the AI)?', value = int(0))
     #q4 = st.radio("What gender do you identify as?", ["", "FEMALE", "MALE", "PREFER TO SELF-IDENTIFY"])
 
     st.write("Please rate the following statements:")
@@ -172,8 +174,10 @@ if submit_button:
         st.error("Please answer all the questions!")
     else:
         with open(filename, 'a+') as f:
-            f.write(f"{2},{q2},{q2b}\n")
-            f.write(f"{3},{q3}\n")
+            f.write(f"{1},{q1}\n")
+            f.write(f"{2},{q2}\n")
+            f.write(f"{3},{q3},{q3b}\n")
+            f.write(f"{4},{q4}\n")
             #f.write(f"{4},{q4}\n")
             for key in likert_question_keys:
                 f.write(f"{key},{likert_results[key]}\n")
